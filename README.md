@@ -43,8 +43,3 @@ Version Control: Git for tracking code changes and source management.
 
 - Implement user authentication and accounts so customers can log in and view their personal order history.
 - Add a multi-item shopping cart system to allow users to add multiple products before checking out.
-- Item 3
-
-```
-
-```
