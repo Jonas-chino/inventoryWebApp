@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Store - Product Catalog</title>
+  </head>
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    "
+  >
+    <div
+      style="
+        width: 100%;
+        max-width: 800px;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      "
+    >
+      <h1 style="text-align: center; color: #333">Our Products</h1>
+      <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px" />
+
+      <ul style="list-style-type: none; padding: 0">
+        {% for product in products %}
+        <li
+          style="
+            background: #fafafa;
+            border: 1px solid #e1e1e1;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+          "
+        >
+          <h3 style="margin-top: 0; color: #2c3e50">{{ product.name }}</h3>
+          <p style="color: #555">{{ product.description }}</p>
+          <p>
+            <strong>Price:</strong>
+            <span style="color: #27ae60; font-weight: bold"
+              >${{ product.price }}</span
+            >
+          </p>
+          <a
+            href="{% url 'product_detail' product.pk %}"
+            style="
+              display: inline-block;
+              background: #3498db;
+              color: white;
+              padding: 8px 15px;
+              text-decoration: none;
+              border-radius: 4px;
+              font-size: 14px;
+            "
+            >View details and buy</a
+          >
+        </li>
+        {% empty %}
+        <p style="text-align: center; color: #777">
+          No products available at the moment.
+        </p>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
